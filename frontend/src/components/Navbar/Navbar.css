@@ -1,0 +1,260 @@
+.navbar {
+    padding: 20px 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    background-color: white;
+    z-index: 1000;
+}
+
+/* Logo Styling */
+.logo {
+    width: 150px;
+}
+
+.logo-container {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.logo-text {
+    display: flex;
+    align-items: center;
+}
+
+.black-text {
+    color: black;
+}
+
+.yellow-text {
+    color: #FFA500;
+}
+
+/* Navigation Menu */
+.nav-menu {
+    display: flex;
+    gap: 20px;
+    cursor: pointer;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    padding: 10px 15px;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-menu a:hover,
+.nav-menu .active {
+    color: #FFA500;
+}
+
+/* Right Side (Cart & Profile) */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Cart Icon */
+.nav-cart {
+    position: relative;
+}
+
+.nav-cart img {
+    height: 30px;
+    cursor: pointer;
+}
+
+/* Notification Dot */
+.dot {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    height: 12px;
+    width: 12px;
+    background: red;
+    border-radius: 50%;
+}
+
+/* Sign In Button */
+.signin-btn {
+    padding: 8px 16px;
+    background: #FFA500;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.signin-btn:hover {
+    background: #ff8c00;
+}
+
+/* Profile Dropdown */
+.navbar-profile {
+    position: relative;
+    cursor: pointer;
+}
+
+.navbar-profile img {
+    height: 35px;
+    border-radius: 50%;
+}
+
+.nav-profile-dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    width: 150px;
+}
+
+.navbar-profile:hover .nav-profile-dropdown {
+    display: block;
+}
+
+.nav-profile-dropdown li {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.nav-profile-dropdown li:hover {
+    background: #f8f8f8;
+}
+
+.nav-profile-dropdown img {
+    height: 20px;
+    margin-right: 10px;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 250px;
+    height: 100%;
+    background: white;
+    box-shadow: -4px 0 6px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease-in-out;
+    padding: 20px;
+    z-index: 2000;
+}
+
+.sidebar.open {
+    right: 0;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.sidebar-menu a {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+/* Sidebar Authentication Buttons */
+.sidebar-auth {
+    margin-top: 20px;
+}
+
+/* Sidebar Sign In Button */
+.sidebar-auth .signin-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: #FFA500;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    transition: background 0.3s ease-in-out;
+}
+
+.sidebar-auth .signin-btn:hover {
+    background: #ff8c00;
+}
+
+/* Sidebar Sign Out Button */
+.sidebar-auth .signout-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: #d9534f;
+    /* Red color for logout */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+    margin-top: 10px;
+}
+
+.sidebar-auth .signout-btn:hover {
+    background: #c9302c;
+    /* Darker red on hover */
+    transform: scale(1.05);
+}
+
+/* Mobile View Adjustments */
+@media screen and (max-width: 750px) {
+    .nav-menu {
+        display: none;
+    }
+
+    .mobile-nav {
+        display: flex;
+        align-items: center;
+    }
+
+    .sidebar-toggle {
+        font-size: 24px;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    /* Move cart icon to bottom right */
+    .nav-cart {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1500;
+        background: white;
+        padding: 10px;
+        border-radius: 50%;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+}
+
+/* Blurring Background when Sign In Modal is Open */
+.blur-background {
+    filter: blur(5px);
+    pointer-events: none;
+}

@@ -1,0 +1,102 @@
+.explore-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.explore-menu h1 {
+    color: #262626;
+    font-weight: 500;
+}
+
+.explore-menu-text {
+    max-width: 60%;
+    color: #808080;
+    margin: 0 auto;
+}
+
+.scroll-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Infinite scrolling animation */
+.explore-menu-list {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin: 30px 0px;
+    text-align: center;
+    white-space: nowrap;
+    animation: scrollMenu 20s linear infinite;
+}
+
+/* Hide scrollbar */
+.explore-menu-list::-webkit-scrollbar {
+    display: none;
+}
+
+.explore-menu-list-item {
+    flex: 0 0 auto;
+    /* Prevents shrinking */
+    width: 7.5vw;
+    min-width: 80px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: 0.2s;
+}
+
+.explore-menu-list-item p {
+    margin-top: 10px;
+    color: #747474;
+    font-size: max(1.4vw, 16px);
+    cursor: pointer;
+}
+
+/* Infinite scrolling keyframes */
+@keyframes scrollMenu {
+    from {
+        transform: translateX(0%);
+    }
+
+    to {
+        transform: translateX(-50%);
+        /* Moves left infinitely */
+    }
+}
+
+/* Active state animation */
+@keyframes fadeInBorder {
+    0% {
+        border: 4px solid transparent;
+        opacity: 1;
+    }
+
+    100% {
+        border: 4px solid tomato;
+        opacity: 1;
+    }
+}
+
+.explore-menu-list-item .active {
+    animation: fadeInBorder 0.5s ease-in forwards;
+    padding: 2px;
+    border-radius: 50%;
+}
+
+/* Responsive Design */
+@media (max-width: 1050px) {
+    .explore-menu-text {
+        max-width: 100%;
+        font-size: 14px;
+    }
+}
+
+/* Pause animation on hover */
+.explore-menu-list:hover {
+    animation-play-state: paused;
+}
